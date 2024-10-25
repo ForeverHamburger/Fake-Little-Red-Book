@@ -1,15 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.messagepage.view.MessageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="#F9F9F9"
+        android:scaleType="fitCenter"
+        android:src="@drawable/find_group"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="消息界面" />
+        android:text="消息"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibtn_love_and_shoucang"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#F9F9F9"
+        android:scaleType="fitXY"
+        android:layout_marginRight="60dp"
+        android:src="@drawable/love_and_shoucang"
+        app:layout_constraintEnd_toStartOf="@+id/ibtn_new_attention"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_new_attention" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="赞和收藏"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_love_and_shoucang"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_love_and_shoucang"
+        app:layout_constraintTop_toBottomOf="@id/ibtn_love_and_shoucang" />
+
+
+    <ImageButton
+        android:id="@+id/ibtn_new_attention"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#F9F9F9"
+        android:scaleType="fitXY"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/new_attention"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增关注"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_new_attention"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_new_attention"
+        app:layout_constraintTop_toBottomOf="@id/ibtn_new_attention" />
+
+    <ImageButton
+        android:id="@+id/ibtn_comments_and_at"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#F9F9F9"
+        android:scaleType="fitXY"
+        android:src="@drawable/comments_and_at"
+        android:layout_marginLeft="60dp"
+        app:layout_constraintStart_toEndOf="@+id/ibtn_new_attention"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_new_attention" /> />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="评论和@"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_comments_and_at"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_comments_and_at"
+        app:layout_constraintTop_toBottomOf="@id/ibtn_comments_and_at" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

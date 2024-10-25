@@ -48,6 +48,9 @@ public class PageContainerActivity extends AppCompatActivity {
         myPageFragment = new MyPageFragment();
         shoppingFragment = new ShoppingFragment();
 
+        //初次进入界面，默认展示首页
+        loadFragment(pageContainerFragment);
+
         binding.bottomTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -78,10 +81,8 @@ public class PageContainerActivity extends AppCompatActivity {
     }
 
     private void loadFragment(Fragment fragment) {
-        if (fragmentManager == null || fragmentTransaction == null) {
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-        }
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container_view_tag, fragment)
                 .addToBackStack(null)
                 .commit();
