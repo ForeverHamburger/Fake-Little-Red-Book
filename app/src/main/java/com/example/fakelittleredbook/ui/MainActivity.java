@@ -11,7 +11,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fakelittleredbook.R;
-import com.example.fakelittleredbook.ui.homepage.HomePageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
+                Intent intent = new Intent(MainActivity.this, PageContainerActivity.class);
                 startActivity(intent);
                 finish();
             }

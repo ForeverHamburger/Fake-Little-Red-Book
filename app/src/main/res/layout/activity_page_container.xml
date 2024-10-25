@@ -5,9 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.homepage.HomePageActivity">
+    tools:context=".ui.PageContainerActivity">
 
-
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view_tag"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/bottom_tabLayout"
@@ -15,8 +21,9 @@
         android:layout_height="40dp"
         android:layout_marginBottom="5dp"
         app:tabRippleColor="@color/white"
+        app:tabTextColor="#8B8B8B"
+        app:tabSelectedTextColor="@color/black"
         app:tabSelectedTextAppearance="@style/tabSelectedTextAppearance"
-        app:tabTextAppearance="@style/tabTextAppearance"
         app:tabIndicatorHeight="0dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +43,7 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="null" />
+            android:text="ull" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
