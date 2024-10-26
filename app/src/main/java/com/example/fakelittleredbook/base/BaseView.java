@@ -1,4 +1,4 @@
-package com.example.fakelittleredbook.ui.messagepage.view;
+package com.example.fakelittleredbook.base;
 
 public interface BaseView<T> {
     void setPresenter(T presenter);
