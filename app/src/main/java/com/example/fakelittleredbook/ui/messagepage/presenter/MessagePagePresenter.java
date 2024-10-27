@@ -21,9 +21,9 @@ public class MessagePagePresenter implements IMessagePageContract.IMessagePagePr
     }
 
     @Override
-    public void onSuccess(List<MessageInfo> messageInfo) {
+    public void onSuccess(List<MessageInfo> messageInfos) {
         if (view.isActive()) {
-            view.showMessage(messageInfo);
+            view.showMessage(messageInfos);
         }
     }
 

@@ -15,9 +15,12 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.ActivityPageContainerBinding;
 import com.example.fakelittleredbook.ui.homepage.view.PageContainerFragment;
+import com.example.fakelittleredbook.ui.messagepage.model.MessagePageModel;
+import com.example.fakelittleredbook.ui.messagepage.presenter.MessagePagePresenter;
 import com.example.fakelittleredbook.ui.messagepage.view.MessageFragment;
 import com.example.fakelittleredbook.ui.mypage.view.MyPageFragment;
 import com.example.fakelittleredbook.ui.shoppage.view.ShoppingFragment;
+import com.example.fakelittleredbook.utils.ActivityUtils;
 import com.google.android.material.tabs.TabLayout;
 
 public class PageContainerActivity extends AppCompatActivity {
@@ -43,13 +46,20 @@ public class PageContainerActivity extends AppCompatActivity {
             return insets;
         });
 
+
         pageContainerFragment = new PageContainerFragment();
+
+        // 消息页面依赖注入
         messageFragment = new MessageFragment();
+        MessagePageModel messagePageModel = new MessagePageModel();
+        MessagePagePresenter messagePagePresenter = new MessagePagePresenter(messageFragment, messagePageModel);
+        messageFragment.setPresenter(messagePagePresenter);
+
         myPageFragment = new MyPageFragment();
         shoppingFragment = new ShoppingFragment();
 
         //初次进入界面，默认展示首页
-        loadFragment(pageContainerFragment);
+        ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), pageContainerFragment, R.id.fragment_container_view_tag);
 
         binding.bottomTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -57,16 +67,16 @@ public class PageContainerActivity extends AppCompatActivity {
                 CharSequence text = tab.getText();
                 if (text.equals("首页")) {
                     Toast.makeText(PageContainerActivity.this, "首页", Toast.LENGTH_SHORT).show();
-                    loadFragment(pageContainerFragment);
+                    ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), pageContainerFragment, R.id.fragment_container_view_tag);
                 } else if (text.equals("购物")) {
                     Toast.makeText(PageContainerActivity.this, "购物", Toast.LENGTH_SHORT).show();
-                    loadFragment(shoppingFragment);
+                    ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), shoppingFragment, R.id.fragment_container_view_tag);
                 } else if (text.equals("消息")) {
                     Toast.makeText(PageContainerActivity.this, "消息", Toast.LENGTH_SHORT).show();
-                    loadFragment(messageFragment);
+                    ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), messageFragment, R.id.fragment_container_view_tag);
                 } else {
                     Toast.makeText(PageContainerActivity.this, "我", Toast.LENGTH_SHORT).show();
-                    loadFragment(myPageFragment);
+                    ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), myPageFragment, R.id.fragment_container_view_tag);
                 }
             }
 
@@ -78,13 +88,5 @@ public class PageContainerActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-    }
-
-    private void loadFragment(Fragment fragment) {
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container_view_tag, fragment)
-                .addToBackStack(null)
-                .commit();
     }
 }
