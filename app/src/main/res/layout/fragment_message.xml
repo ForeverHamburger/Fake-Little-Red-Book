@@ -36,7 +36,7 @@
                 android:layout_height="60dp"
                 android:layout_marginRight="60dp"
                 android:background="#F9F9F9"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:src="@drawable/love_and_shoucang"
                 app:layout_constraintEnd_toStartOf="@+id/ibtn_new_attention"
                 app:layout_constraintTop_toTopOf="@+id/ibtn_new_attention" />
