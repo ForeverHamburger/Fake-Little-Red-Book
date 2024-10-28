@@ -7,14 +7,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.FragmentMessageBinding;
 import com.example.fakelittleredbook.ui.messagepage.contract.IMessagePageContract;
 import com.example.fakelittleredbook.ui.messagepage.model.MessageInfo;
+import com.example.fakelittleredbook.ui.messagepage.view.adapters.FindMoreFriendsRecyclerAdapter;
 import com.example.fakelittleredbook.ui.messagepage.view.adapters.MessageRecyclerAdapter;
 
 import java.util.List;
@@ -47,6 +52,23 @@ public class MessageFragment extends Fragment implements IMessagePageContract.IM
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter.getMessageInfo("把数据给我");
+
+
+        binding.messageScroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                int i = binding.messageScroll.getChildAt(0).getMeasuredHeight()
+                        - binding.llFindMoreFriends.getHeight()
+                        - binding.llFindMoreFriends.getHeight()
+                        - binding.rvFindMoreFriends.getHeight()
+                        - binding.llFmfBottom.getHeight();
+                if (scrollY >= i) {
+                    binding.hideLlFindMoreFriends.setVisibility(View.VISIBLE);
+                } else {
+                    binding.hideLlFindMoreFriends.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     @Override
@@ -55,7 +77,7 @@ public class MessageFragment extends Fragment implements IMessagePageContract.IM
     }
 
     @Override
-    public void showMessage(List<MessageInfo> messageList) {
+    public void showMessage(List<MessageInfo> messageList,List<MessageInfo> fmfList) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -63,6 +85,11 @@ public class MessageFragment extends Fragment implements IMessagePageContract.IM
                 MessageRecyclerAdapter adapter = new MessageRecyclerAdapter(messageList);
                 binding.rvMessage.setLayoutManager(layoutManager);
                 binding.rvMessage.setAdapter(adapter);
+
+                LinearLayoutManager layoutManager1 = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+                FindMoreFriendsRecyclerAdapter adapter1 = new FindMoreFriendsRecyclerAdapter(fmfList);
+                binding.rvFindMoreFriends.setLayoutManager(layoutManager1);
+                binding.rvFindMoreFriends.setAdapter(adapter1);
             }
         });
     }

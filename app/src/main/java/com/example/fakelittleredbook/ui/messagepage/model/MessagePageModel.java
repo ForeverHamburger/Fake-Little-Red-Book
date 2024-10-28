@@ -39,7 +39,15 @@ public class MessagePageModel implements IMessagePageContract.IMessagePageModel<
         }
         messageInfos.add(new MessageInfo(R.drawable.icon_example,"系统消息"
                 ,"你的八折优惠券马上到期啦~","星期三"));
-        callBack.onSuccess(messageInfos);
+
+        // 再造一点数据
+        List<MessageInfo> fmfInfos = new ArrayList<>();
+        for (int i = 0; i < 15; i++) {
+            fmfInfos.add(new MessageInfo(R.drawable.icon_nailong1,"芒果杀手"
+                    ,"喜欢发奶龙的小朋友你们好啊~","10月10日"));
+        }
+
+        callBack.onSuccess(messageInfos,fmfInfos);
 
         callBack.onFinish();
 

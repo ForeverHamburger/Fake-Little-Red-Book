@@ -46,7 +46,7 @@ public class PageContainerActivity extends AppCompatActivity {
             return insets;
         });
 
-
+        // 首页界面依赖注入
         pageContainerFragment = new PageContainerFragment();
 
         // 消息页面依赖注入
@@ -55,7 +55,10 @@ public class PageContainerActivity extends AppCompatActivity {
         MessagePagePresenter messagePagePresenter = new MessagePagePresenter(messageFragment, messagePageModel);
         messageFragment.setPresenter(messagePagePresenter);
 
+        // 我的页面依赖注入
         myPageFragment = new MyPageFragment();
+
+        // 购物界面依赖注入
         shoppingFragment = new ShoppingFragment();
 
         //初次进入界面，默认展示首页

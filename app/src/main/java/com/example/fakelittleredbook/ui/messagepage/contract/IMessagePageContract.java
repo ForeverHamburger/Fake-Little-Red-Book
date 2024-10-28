@@ -16,7 +16,7 @@ public interface IMessagePageContract {
         void getMessageInfo(String data);
     }
     interface IMessagePageView extends BaseView<IMessagePagePresenter> {
-        void showMessage(List<MessageInfo> messageList);
+        void showMessage(List<MessageInfo> messageList,List<MessageInfo> fmfList);
         void showError();
         // 用于判断Fragment是否添加到了Activity中
         boolean isActive();

@@ -9,38 +9,8 @@
     android:background="#FEFEFE"
     tools:context=".ui.messagepage.view.MessageFragment">
 
-    <LinearLayout
-        android:id="@+id/hide_ll_find_more_friends"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#FEFEFE"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/hide_tv_find_more_friends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="发现更多好友"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/hide_btn_close_find_more_friends"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="230dp"
-            android:gravity="center"
-            android:text="关闭"
-            android:textSize="14sp" />
-    </LinearLayout>
-
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/message_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +25,7 @@
             <View
                 android:id="@+id/hide_message_bar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
             </View>
@@ -175,6 +145,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ll_find_more_friends" />
 
+            <LinearLayout
+                android:id="@+id/ll_fmf_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#FEFEFE"
+                android:gravity="center|top"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_find_more_friends">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="发现更多好友＞"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -182,7 +170,7 @@
     <LinearLayout
         android:id="@+id/message_bar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:background="#FEFEFE"
         app:layout_constraintEnd_toEndOf="parent"
@@ -201,7 +189,7 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="13dp"
             android:src="@drawable/pic_find_group"
             android:layout_marginLeft="70dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -213,8 +201,39 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="15dp"
             android:text="发现群聊"
+            android:textSize="15sp"
             android:textColor="@color/black"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/hide_ll_find_more_friends"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#FEFEFE"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/message_bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="发现更多好友"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="230dp"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="@color/grey"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
