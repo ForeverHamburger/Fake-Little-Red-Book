@@ -6,6 +6,13 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
+    <style name="myToolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:scaleType">centerInside</item>
     </style>
 
     <style name="Theme.FakeLittleRedBook" parent="Base.Theme.FakeLittleRedBook" />

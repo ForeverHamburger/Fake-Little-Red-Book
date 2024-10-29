@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_find_more_friends"
+            android:title="发现好友"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_creation_center"
+            android:title="创作中心"/>
+        <item
+            android:id="@+id/menu_draft"
+            android:title="我的草稿"/>
+        <item
+            android:id="@+id/menu_comment"
+            android:title="我的评论"/>
+        <item
+            android:id="@+id/menu_browsinghistory"
+            android:title="浏览记录"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_order"
+            android:title="订单"/>
+        <item
+            android:id="@+id/menu_shoppingcar"
+            android:title="购物车"/>
+        <item
+            android:id="@+id/menu_moneybag"
+            android:title="钱包"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_community"
+            android:title="社区公约"/>
+    </group>
+</menu>

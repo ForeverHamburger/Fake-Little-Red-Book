@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bg_color">#FEFEFE</color>
     <color name="grey">#8B8B8B</color>
+    <color name="touming">#00FEFEFE</color>
 </resources>

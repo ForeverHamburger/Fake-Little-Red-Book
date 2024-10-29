@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -48,6 +49,11 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(getActivity(), binding.dlMyPage, binding.tbMyPage, R.string.drawer_open, R.string.drawer_close);
+        binding.dlMyPage.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.icon_menu);
+        actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+        actionBarDrawerToggle.syncState();
     }
 
     @Override
