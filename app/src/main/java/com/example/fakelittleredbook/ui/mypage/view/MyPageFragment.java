@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,9 @@ import com.example.fakelittleredbook.databinding.FragmentMyPageBinding;
 import com.example.fakelittleredbook.ui.messagepage.model.MessageInfo;
 import com.example.fakelittleredbook.ui.mypage.contract.IMyPageContract;
 import com.example.fakelittleredbook.ui.mypage.model.MyInfo;
+import com.example.fakelittleredbook.ui.mypage.view.adapters.MyFunctionAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -54,6 +57,34 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
         actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.icon_menu);
         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         actionBarDrawerToggle.syncState();
+
+        // 初始化RecyclerView
+        initView();
+    }
+
+    private void initView() {
+        // 初始化并且编造RecyclerView的数据
+        List<String> myFunctions = new ArrayList<>();
+        List<String> myDiscriptions = new ArrayList<>();
+        myFunctions.add("购物");
+        myFunctions.add("订单");
+        myFunctions.add("购物车");
+        myFunctions.add("创作灵感");
+        myFunctions.add("浏览记录");
+
+        myDiscriptions.add("1年1度购物狂欢");
+        myDiscriptions.add("查看我的订单");
+        myDiscriptions.add("查看推荐好物");
+        myDiscriptions.add("学创作找灵感");
+        myDiscriptions.add("看过的笔记");
+
+        MyFunctionAdapter myFunctionAdapter = new MyFunctionAdapter(myFunctions,myDiscriptions);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        binding.rvMyFunctions.setLayoutManager(layoutManager);
+        binding.rvMyFunctions.setAdapter(myFunctionAdapter);
+
+        // ViewPager2与TabLayout绑定 与 数据初始化
+
     }
 
     @Override

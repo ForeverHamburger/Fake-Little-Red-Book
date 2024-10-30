@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/bg_my_rv_and_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_function_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购物"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_function_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="8折优惠券要过期咯"
+        android:textColor="@color/grey_two"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_function_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_function_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

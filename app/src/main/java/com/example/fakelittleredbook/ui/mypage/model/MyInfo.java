@@ -5,23 +5,32 @@ public class MyInfo {
     private String userName;
     private String userId;
     private String IPPosition;
+    private String simpleInfo;
     private int attentionCount;
     private int followerCount;
     private int loveAndCollection;
     private int background;
 
-    public MyInfo(int profilePicture, String userName
-            , String userId, String IPPosition
-            , int attentionCount, int followerCount
-            , int loveAndCollection, int background) {
+    public MyInfo(int profilePicture, String userName, String userId
+            , String IPPosition, String simpleInfo, int attentionCount
+            , int followerCount, int loveAndCollection, int background) {
         this.profilePicture = profilePicture;
         this.userName = userName;
         this.userId = userId;
         this.IPPosition = IPPosition;
+        this.simpleInfo = simpleInfo;
         this.attentionCount = attentionCount;
         this.followerCount = followerCount;
         this.loveAndCollection = loveAndCollection;
         this.background = background;
+    }
+
+    public String getSimpleInfo() {
+        return simpleInfo;
+    }
+
+    public void setSimpleInfo(String simpleInfo) {
+        this.simpleInfo = simpleInfo;
     }
 
     public int getProfilePicture() {
