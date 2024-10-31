@@ -45,4 +45,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // 下拉刷新
+    implementation ("in.srain.cube:ultra-ptr:1.0.11")
 }

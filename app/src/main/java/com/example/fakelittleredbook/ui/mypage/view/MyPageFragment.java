@@ -18,6 +18,12 @@ import com.example.fakelittleredbook.ui.messagepage.model.MessageInfo;
 import com.example.fakelittleredbook.ui.mypage.contract.IMyPageContract;
 import com.example.fakelittleredbook.ui.mypage.model.MyInfo;
 import com.example.fakelittleredbook.ui.mypage.view.adapters.MyFunctionAdapter;
+import com.example.fakelittleredbook.ui.mypage.view.adapters.ViewPagerAdapter;
+import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallModel;
+import com.example.fakelittleredbook.ui.waterfallpage.presenter.WaterFallPagePresenter;
+import com.example.fakelittleredbook.ui.waterfallpage.view.WaterFallFragment;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +90,40 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
         binding.rvMyFunctions.setAdapter(myFunctionAdapter);
 
         // ViewPager2与TabLayout绑定 与 数据初始化
+        List<WaterFallFragment> fragmentList = new ArrayList<>();
 
+        WaterFallFragment waterFallFragment = new WaterFallFragment();
+        WaterFallModel waterFallModel = new WaterFallModel();
+        WaterFallPagePresenter waterFallPagePresenter = new WaterFallPagePresenter(waterFallFragment, waterFallModel);
+        waterFallFragment.setPresenter(waterFallPagePresenter);
+
+        WaterFallFragment waterFallFragment1 = new WaterFallFragment();
+        WaterFallModel waterFallModel1 = new WaterFallModel();
+        WaterFallPagePresenter waterFallPagePresenter1 = new WaterFallPagePresenter(waterFallFragment1, waterFallModel1);
+        waterFallFragment1.setPresenter(waterFallPagePresenter1);
+
+        WaterFallFragment waterFallFragment2 = new WaterFallFragment();
+        WaterFallModel waterFallModel2 = new WaterFallModel();
+        WaterFallPagePresenter waterFallPagePresenter2 = new WaterFallPagePresenter(waterFallFragment2, waterFallModel2);
+        waterFallFragment2.setPresenter(waterFallPagePresenter2);
+
+        fragmentList.add(waterFallFragment);
+        fragmentList.add(waterFallFragment1);
+        fragmentList.add(waterFallFragment2);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(), fragmentList);
+        binding.vpMy.setAdapter(viewPagerAdapter);
+        new TabLayoutMediator(binding.tabMy, binding.vpMy, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
+                if (i == 0) {
+                    tab.setText("笔记");
+                } else if (i == 1) {
+                    tab.setText("收藏");
+                } else {
+                    tab.setText("赞过");
+                }
+            }
+        }).attach();
     }
 
     @Override
@@ -94,7 +133,6 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
 
     @Override
     public void showMyInfomation(MyInfo myInfo) {
-
     }
 
     @Override
