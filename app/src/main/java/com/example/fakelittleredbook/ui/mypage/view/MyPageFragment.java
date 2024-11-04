@@ -66,6 +66,18 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
 
         // 初始化RecyclerView
         initView();
+
+        binding.myScroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                int i = binding.imageView2.getMeasuredHeight();
+                if (scrollY >= i) {
+                    binding.tabMyHide.setVisibility(View.VISIBLE);
+                } else {
+                    binding.tabMyHide.setVisibility(View.GONE);
+                }
+            }
+        });
     }
 
     private void initView() {
@@ -113,7 +125,21 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(), fragmentList);
         binding.vpMy.setAdapter(viewPagerAdapter);
         binding.vpMy.setOffscreenPageLimit(3);
+
         new TabLayoutMediator(binding.tabMy, binding.vpMy, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
+                if (i == 0) {
+                    tab.setText("笔记");
+                } else if (i == 1) {
+                    tab.setText("收藏");
+                } else {
+                    tab.setText("赞过");
+                }
+            }
+        }).attach();
+
+        new TabLayoutMediator(binding.tabMyHide, binding.vpMy, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
                 if (i == 0) {

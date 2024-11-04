@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/my_scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -188,11 +189,26 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_love_and_shoucang"
                     app:layout_constraintTop_toBottomOf="@+id/tv_love_and_shoucang" />
 
+                <Button
+                    android:id="@+id/edit_information"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="90dp"
+                    android:background="@drawable/bg_button"
+                    android:maxEms="24"
+                    android:text="编辑资料"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:layout_marginRight="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_love_and_shoucang" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_my_functions"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:layout_marginTop="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -209,7 +225,7 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_my"
                     android:layout_width="match_parent"
-                    android:layout_height="900dp"
+                    android:layout_height="2000dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -218,6 +234,16 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_my_hide"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_my_page"
