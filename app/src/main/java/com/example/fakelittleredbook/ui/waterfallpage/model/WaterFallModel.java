@@ -15,7 +15,7 @@ public class WaterFallModel implements IWaterFallContract.IWaterFallPageModel<St
 
         // 造一点数据
         List<WaterFallInfo> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             list.add(new WaterFallInfo(WaterFallInfo.NOTE, R.drawable.pic_nailong1,"☀奶龙大王入侵地球☀"
                     ,R.drawable.icon_nailong1,"奶龙大王","15.1k"));
             list.add(new WaterFallInfo(WaterFallInfo.NOTE, R.drawable.icon_nailong1,"☀奶龙入侵西邮☀"

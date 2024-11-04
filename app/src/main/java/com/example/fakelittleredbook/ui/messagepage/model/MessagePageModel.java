@@ -42,7 +42,7 @@ public class MessagePageModel implements IMessagePageContract.IMessagePageModel<
 
         // 再造一点数据
         List<MessageInfo> fmfInfos = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 10; i++) {
             fmfInfos.add(new MessageInfo(R.drawable.icon_nailong1,"芒果杀手"
                     ,"喜欢发奶龙的小朋友你们好啊~","10月10日"));
         }

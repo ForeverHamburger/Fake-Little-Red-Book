@@ -1,5 +1,6 @@
 package com.example.fakelittleredbook.ui.mypage.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,10 +72,17 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
         binding.myScroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
             @Override
             public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                int i = binding.imageView2.getMeasuredHeight();
+                int i = binding.imageView2.getMeasuredHeight() - binding.tbMyPage.getMeasuredHeight();
                 if (scrollY >= i) {
                     binding.tabMyHide.setVisibility(View.VISIBLE);
+                    int color = Color.argb(255, 64, 74, 74);
+                    binding.tbMyPage.setBackgroundColor(color);
                 } else {
+                    int alpha = (int) (255 * ((float) scrollY / i));
+                    Log.d("adsawa", "onScrollChange: " + alpha);
+                    int color = Color.argb(alpha, 64, 74, 74);
+                    binding.tbMyPage.setBackgroundColor(color);
+
                     binding.tabMyHide.setVisibility(View.GONE);
                 }
             }
