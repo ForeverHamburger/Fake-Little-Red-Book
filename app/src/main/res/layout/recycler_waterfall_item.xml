@@ -28,7 +28,7 @@
                 android:adjustViewBounds="true"
                 android:background="@color/bg_color"
                 android:scaleType="fitXY"
-                android:src="@drawable/icon_nailong"
+                android:src="@drawable/nailong_long"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,7 +70,7 @@
                 android:id="@+id/tv_waterfall_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:maxEms="5"
                 android:maxLines="1"
                 android:text="奶龙大王"
@@ -82,8 +82,8 @@
 
             <ImageView
                 android:id="@+id/iv_wf_love_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/icon_love_empty"

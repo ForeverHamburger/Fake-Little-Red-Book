@@ -112,6 +112,7 @@ public class MyPageFragment extends Fragment implements IMyPageContract.IMyPageV
         fragmentList.add(waterFallFragment2);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(), fragmentList);
         binding.vpMy.setAdapter(viewPagerAdapter);
+        binding.vpMy.setOffscreenPageLimit(3);
         new TabLayoutMediator(binding.tabMy, binding.vpMy, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
