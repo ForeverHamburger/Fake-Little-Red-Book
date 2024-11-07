@@ -13,47 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/home_scroll"
-            android:layout_width="match_parent"
-            android:layout_height="1000dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:background="@color/touming"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tabGravity="center"
-                    android:layout_marginRight="60dp"
-                    android:layout_marginLeft="60dp"
-                    app:tabIndicatorColor="#ED2E49"
-                    app:tabIndicatorFullWidth="false"
-                    app:tabMinWidth="70dp"
-                    app:tabMode="fixed" />
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="1500dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tab_home" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.core.widget.NestedScrollView>
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_home_page"
             style="@style/myToolbarNavigationButtonStyle"
@@ -65,7 +24,7 @@
             app:menu="@menu/menu_toolbar_homepage" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_home_hide"
+            android:id="@+id/tab_home"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/touming"
@@ -79,6 +38,15 @@
             app:tabIndicatorFullWidth="false"
             app:tabMinWidth="70dp"
             app:tabMode="fixed" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_home"
+            android:layout_width="match_parent"
+            android:layout_height="1500dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_home" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

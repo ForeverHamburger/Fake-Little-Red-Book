@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.FragmentPageContainerBinding;
+import com.example.fakelittleredbook.ui.homepage.contract.IHomePageContract;
 import com.example.fakelittleredbook.ui.mypage.view.adapters.ViewPagerAdapter;
 import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallModel;
 import com.example.fakelittleredbook.ui.waterfallpage.presenter.WaterFallPagePresenter;
@@ -23,8 +24,9 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageContainerFragment extends Fragment {
+public class PageContainerFragment extends Fragment implements IHomePageContract.IHomePageView {
     private FragmentPageContainerBinding binding;
+    private IHomePageContract.IHomePagePresenter mPresenter;
 
     public PageContainerFragment() {
         // Required empty public constructor
@@ -84,7 +86,7 @@ public class PageContainerFragment extends Fragment {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(), fragmentList);
         binding.vpHome.setAdapter(viewPagerAdapter);
 
-        new TabLayoutMediator(binding.tabHomeHide, binding.vpHome, new TabLayoutMediator.TabConfigurationStrategy() {
+        new TabLayoutMediator(binding.tabHome, binding.vpHome, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
                 if (i == 0) {
@@ -96,18 +98,25 @@ public class PageContainerFragment extends Fragment {
                 }
             }
         }).attach();
+    }
 
-        new TabLayoutMediator(binding.tabHomeHide, binding.vpHome, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int i) {
-                if (i == 0) {
-                    tab.setText("笔记");
-                } else if (i == 1) {
-                    tab.setText("收藏");
-                } else {
-                    tab.setText("赞过");
-                }
-            }
-        }).attach();
+    @Override
+    public void setPresenter(IHomePageContract.IHomePagePresenter presenter) {
+        mPresenter = presenter;
+    }
+
+    @Override
+    public void showHomePageInfomation(List<String> waterFallInfo) {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return true;
     }
 }

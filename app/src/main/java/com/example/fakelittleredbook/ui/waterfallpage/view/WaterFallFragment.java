@@ -24,6 +24,11 @@ import com.example.fakelittleredbook.ui.waterfallpage.view.adapters.WaterFallAda
 
 import java.util.List;
 
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.header.MaterialHeader;
+import in.srain.cube.views.ptr.util.PtrLocalDisplay;
+
 public class WaterFallFragment extends Fragment implements IWaterFallContract.IWaterFallPageView {
     private FragmentWaterFallBinding binding;
     private IWaterFallContract.IWaterFallPagePresenter mPresenter;
@@ -56,6 +61,23 @@ public class WaterFallFragment extends Fragment implements IWaterFallContract.IW
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter.getWaterFallInfo(requestType);
+
+        // 绑定下拉刷新
+        PtrFrameLayout ptrFrame = binding.ptrFrame;
+        MaterialHeader materialHeader = new MaterialHeader(getActivity());
+        materialHeader.setPadding(0, PtrLocalDisplay.dp2px(35),0,0);
+
+        ptrFrame.setHeaderView(materialHeader);
+        ptrFrame.addPtrUIHandler(materialHeader);
+        ptrFrame.disableWhenHorizontalMove(true);
+
+        ptrFrame.setPtrHandler(new PtrDefaultHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                // 刷新逻辑
+                ptrFrame.refreshComplete();
+            }
+        });
     }
 
     @Override
