@@ -1,17 +1,26 @@
 package com.example.fakelittleredbook.ui.shortvideopage.view;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.media3.ui.PlayerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.ActivityShortVideoBinding;
 import com.example.fakelittleredbook.ui.shortvideopage.contract.IShortVideoPageContract;
 import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoInfo;
+import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoModel;
+import com.example.fakelittleredbook.ui.shortvideopage.presenter.ShortVideoPresenter;
+import com.example.fakelittleredbook.ui.shortvideopage.view.adapters.VideoPagerAdapter;
+import com.example.fakelittleredbook.utils.VideoPlayManager;
+import com.example.fakelittleredbook.utils.VideoPlayTask;
 
 import java.util.List;
 
@@ -19,6 +28,7 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
 
     private ActivityShortVideoBinding binding;
     private IShortVideoPageContract.IShortVideoPagePresenter mPresenter;
+    private VideoPagerAdapter videoPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +42,13 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
             return insets;
         });
 
+        ShortVideoModel shortVideoModel = new ShortVideoModel();
+        ShortVideoPresenter shortVideoPresenter = new ShortVideoPresenter(shortVideoModel, this);
+        this.setPresenter(shortVideoPresenter);
 
+        mPresenter.getShortVideoPageInfo("小红书视频");
     }
+
 
     @Override
     public void setPresenter(IShortVideoPageContract.IShortVideoPagePresenter presenter) {
@@ -42,7 +57,39 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
 
     @Override
     public void showShortVideoPageInfomation(List<ShortVideoInfo> ShortVedioInfo) {
+        videoPagerAdapter = new VideoPagerAdapter(this);
+        videoPagerAdapter.setDataList(VideoPlayManager.buildTestVideoUrls());
+        binding.vpShortVideo.setOrientation(ViewPager2.ORIENTATION_VERTICAL);
 
+        binding.vpShortVideo.setAdapter(videoPagerAdapter);
+
+        binding.vpShortVideo.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+
+                View itemView = binding.vpShortVideo.findViewWithTag(position);
+                PlayerView simpleExoPlayerView = itemView.findViewById(R.id.play_view);
+                Log.d("Video_Play_TAG", "onPageSelected: 获取到" + position + "位置的播放器");
+                VideoPlayManager.getInstance(getApplicationContext())
+                        .setCurVideoPlayTask(new VideoPlayTask(simpleExoPlayerView, videoPagerAdapter.getUrlByPos(position)));
+                Log.d("Video_Play_TAG", "onPageSelected: " +  videoPagerAdapter.getUrlByPos(position));
+                if(true) {
+                    VideoPlayManager.getInstance(getApplicationContext()).startPlay();
+                    Log.d("Video_Play_TAG", "onPageSelected: 开始播放");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+        });
     }
 
     @Override

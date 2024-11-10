@@ -1,6 +1,8 @@
 package com.example.fakelittleredbook.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -22,6 +24,9 @@ import com.example.fakelittleredbook.ui.mypage.view.MyPageFragment;
 import com.example.fakelittleredbook.ui.shoppage.model.ShopPageModel;
 import com.example.fakelittleredbook.ui.shoppage.presenter.ShopPagePresenter;
 import com.example.fakelittleredbook.ui.shoppage.view.ShoppingFragment;
+import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoModel;
+import com.example.fakelittleredbook.ui.shortvideopage.presenter.ShortVideoPresenter;
+import com.example.fakelittleredbook.ui.shortvideopage.view.ShortVideoActivity;
 import com.example.fakelittleredbook.utils.ActivityUtils;
 import com.google.android.material.tabs.TabLayout;
 
@@ -94,6 +99,14 @@ public class PageContainerActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
+        binding.ibtnPublish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PageContainerActivity.this, ShortVideoActivity.class);
+                startActivity(intent);
             }
         });
     }
