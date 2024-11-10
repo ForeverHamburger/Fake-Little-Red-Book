@@ -8,7 +8,7 @@ import com.example.fakelittleredbook.ui.shoppage.model.ShopItemInfo;
 import java.util.List;
 
 public interface IShopPageContract {
-    interface IHomePageModel<T> {
+    interface IShopPageModel<T> {
         // data是请求数据用的头
         // callBack为回调方法
         void execute(T data, LoadShopPageInfoCallBack callBack);

@@ -7,10 +7,10 @@ import com.example.fakelittleredbook.ui.shoppage.model.ShopItemInfo;
 import java.util.List;
 
 public class ShopPagePresenter implements IShopPageContract.IShopPagePresenter, LoadShopPageInfoCallBack<List<ShopItemInfo>> {
-    private IShopPageContract.IHomePageModel model;
+    private IShopPageContract.IShopPageModel model;
     private IShopPageContract.IShopPageView view;
 
-    public ShopPagePresenter(IShopPageContract.IHomePageModel model, IShopPageContract.IShopPageView view) {
+    public ShopPagePresenter(IShopPageContract.IShopPageModel model, IShopPageContract.IShopPageView view) {
         this.model = model;
         this.view = view;
     }

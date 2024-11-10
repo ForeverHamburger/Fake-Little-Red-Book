@@ -85,6 +85,7 @@ public class PageContainerFragment extends Fragment implements IHomePageContract
         fragmentList.add(waterFallFragment2);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(), fragmentList);
         binding.vpHome.setAdapter(viewPagerAdapter);
+        binding.vpHome.setOffscreenPageLimit(fragmentList.size());
 
         new TabLayoutMediator(binding.tabHome, binding.vpHome, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override

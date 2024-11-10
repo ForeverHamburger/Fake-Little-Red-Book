@@ -39,7 +39,7 @@ import com.example.fakelittleredbook.R;
 //          10.28 - 11.3 完成我的页面的编写
 //          11.4 - 11.5 完成首页界面的编写
 //          11.6 - 11.7 完成购物界面的编写
-//          11.8 - 11.9 完成短视频界面的编写、完成详情页界面的编写
+//          11.8 - 11.10 完成短视频界面的编写、完成详情页界面的编写
 //
 
 
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000);
+        }, 300);
 
     }
 }

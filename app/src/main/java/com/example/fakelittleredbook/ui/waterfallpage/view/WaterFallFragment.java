@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.FragmentWaterFallBinding;
@@ -21,6 +22,7 @@ import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallInfo;
 import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallModel;
 import com.example.fakelittleredbook.ui.waterfallpage.presenter.WaterFallPagePresenter;
 import com.example.fakelittleredbook.ui.waterfallpage.view.adapters.WaterFallAdapter;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.List;
 

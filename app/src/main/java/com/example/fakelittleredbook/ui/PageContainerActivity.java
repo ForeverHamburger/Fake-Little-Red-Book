@@ -19,6 +19,8 @@ import com.example.fakelittleredbook.ui.messagepage.model.MessagePageModel;
 import com.example.fakelittleredbook.ui.messagepage.presenter.MessagePagePresenter;
 import com.example.fakelittleredbook.ui.messagepage.view.MessageFragment;
 import com.example.fakelittleredbook.ui.mypage.view.MyPageFragment;
+import com.example.fakelittleredbook.ui.shoppage.model.ShopPageModel;
+import com.example.fakelittleredbook.ui.shoppage.presenter.ShopPagePresenter;
 import com.example.fakelittleredbook.ui.shoppage.view.ShoppingFragment;
 import com.example.fakelittleredbook.utils.ActivityUtils;
 import com.google.android.material.tabs.TabLayout;
@@ -60,6 +62,9 @@ public class PageContainerActivity extends AppCompatActivity {
 
         // 购物界面依赖注入
         shoppingFragment = new ShoppingFragment();
+        ShopPageModel shopPageModel = new ShopPageModel();
+        ShopPagePresenter shopPagePresenter = new ShopPagePresenter(shopPageModel, shoppingFragment);
+        shoppingFragment.setPresenter(shopPagePresenter);
 
         //初次进入界面，默认展示首页
         ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), pageContainerFragment, R.id.fragment_container_view_tag);

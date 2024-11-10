@@ -1,12 +1,34 @@
 package com.example.fakelittleredbook.ui.shoppage.model;
 
 public class ShopItemInfo {
+    private Integer itemPicture;
     private String itemName;
     private String label;
     private String price;
     private String discountedPrice;
     private String salesVolume;
     private String tag;
+
+    public ShopItemInfo(Integer itemPicture, String itemName, String label
+            , String price, String discountedPrice, String salesVolume
+            , String tag) {
+        this.itemPicture = itemPicture;
+        this.itemName = itemName;
+        this.label = label;
+        this.price = price;
+        this.discountedPrice = discountedPrice;
+        this.salesVolume = salesVolume;
+        this.tag = tag;
+    }
+
+    public Integer getItemPicture() {
+        return itemPicture;
+    }
+
+    public void setItemPicture(Integer itemPicture) {
+        this.itemPicture = itemPicture;
+    }
+
     public String getItemName() {
         return itemName;
     }
@@ -58,7 +80,8 @@ public class ShopItemInfo {
     @Override
     public String toString() {
         return "ShopItemInfo{" +
-                "itemName='" + itemName + '\'' +
+                "itemPicture=" + itemPicture +
+                ", itemName='" + itemName + '\'' +
                 ", label='" + label + '\'' +
                 ", price='" + price + '\'' +
                 ", discountedPrice='" + discountedPrice + '\'' +
