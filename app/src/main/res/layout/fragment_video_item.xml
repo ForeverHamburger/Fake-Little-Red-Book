@@ -1,27 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-<!--    <com.google.android.exoplayer2.ui.SimpleExoPlayerView-->
-<!--        android:id="@+id/video_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
-
-<!--    <com.google.android.exoplayer2.ui.PlayerView-->
-<!--        android:id="@+id/player_view"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--    </com.google.android.exoplayer2.ui.PlayerView>-->
-
-    <androidx.media3.ui.PlayerView
-        android:id="@+id/play_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        app:show_buffering="always"
-        app:use_controller="false" />
+        android:background="@color/black">
 
-</FrameLayout>
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/play_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:show_buffering="always"
+            app:use_controller="false" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_shortvideo_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            app:cardBackgroundColor="@color/bg_color"
+            app:cardCornerRadius="45dp"
+            app:cardElevation="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_shortvideo_desc"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_my_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_color"
+                android:src="@drawable/icon_nailong" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_shortvideo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="招笑奶龙"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_shortvideo_icon"
+            app:layout_constraintStart_toEndOf="@+id/cv_shortvideo_icon"
+            app:layout_constraintTop_toTopOf="@+id/cv_shortvideo_icon" />
+
+        <TextView
+            android:id="@+id/tv_shortvideo_follow"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_button_red"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_shortvideo_icon"
+            app:layout_constraintStart_toEndOf="@+id/tv_shortvideo_name"
+            app:layout_constraintTop_toTopOf="@+id/cv_shortvideo_icon" />
+
+        <TextView
+            android:id="@+id/tv_shortvideo_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="“登场率”几乎为0的三位英雄！打了3000局 从来都没见过他"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/play_view"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageButton
+                android:id="@+id/ibtn_comments"
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:background="@drawable/pic_say_sth" />
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pic_shortvideo_love"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_love_count"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:text="1.1k"
+                android:textSize="16dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"/>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/pic_shoucang"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_shoucang_count"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:text="87"
+                android:layout_marginLeft="2dp"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"/>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pic_comments"
+                android:layout_marginLeft="10dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_comments_count"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:text="162"
+                android:textSize="16dp"
+                android:layout_marginLeft="2dp"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
