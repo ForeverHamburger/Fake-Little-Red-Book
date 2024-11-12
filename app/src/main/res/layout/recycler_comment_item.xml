@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!--头像-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_comment_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        app:cardBackgroundColor="@color/bg_color"
+        app:cardCornerRadius="45dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_comment_icon"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@color/bg_color"
+            android:src="@drawable/icon_nailong" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/iv_comment_like"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_love"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_comment_like_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_comment_like"
+        app:layout_constraintStart_toStartOf="@+id/iv_comment_like"
+        app:layout_constraintTop_toBottomOf="@id/iv_comment_like" />
+
+    <!--评论内容-->
+    <TextView
+        android:id="@+id/tv_comments_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="我是奶龙"
+        android:textColor="@color/grey_two"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/cv_comment_icon"
+        app:layout_constraintTop_toTopOf="@+id/cv_comment_icon" />
+
+    <TextView
+        android:id="@+id/tv_comments_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:text="爱发奶龙的小朋友你们好啊爱发奶龙的小朋友你们好啊爱发奶龙的小朋友你们好啊"
+        android:maxWidth="300dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/tv_comments_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_comments_name" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="刚刚"
+        android:textColor="@color/grey_two"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_comments_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_comments_content" />
+
+    <!--二级评论-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

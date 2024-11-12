@@ -36,6 +36,21 @@ public class WaterFallAdapter extends RecyclerView.Adapter<WaterFallAdapter.View
         holder.userName.setText(info.getUserName());
         holder.loveCount.setText(info.getLoveCount());
         holder.loveIcon.setImageResource(R.drawable.icon_love);
+
+        final boolean[] statusLove = {true};
+
+        holder.loveIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (statusLove[0]) {
+                    statusLove[0] = false;
+                    holder.loveIcon.setImageResource(R.drawable.icon_love_empty);
+                } else {
+                    statusLove[0] = true;
+                    holder.loveIcon.setImageResource(R.drawable.icon_love);
+                }
+            }
+        });
     }
 
     @Override

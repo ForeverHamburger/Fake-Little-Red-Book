@@ -98,10 +98,9 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
                     public void onClick(View v) {
                         MyDialogFragment myDialogFragment = new MyDialogFragment();
                         myDialogFragment.show(getSupportFragmentManager(), "dialog");
-
-
                     }
                 });
+
             }
 
             @Override

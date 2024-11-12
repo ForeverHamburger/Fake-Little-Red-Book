@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_comments_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/dialog_comments_parent">
+    android:background="@drawable/bg_bottom_sheet">
 
     <TextView
         android:id="@+id/textView2"
@@ -12,22 +13,22 @@
         android:layout_marginTop="10dp"
         android:text="共 235 条评论"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/pic_x"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rv_comments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -42,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey_two"
-        app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@id/rv_comments" />
 
     <EditText
         android:layout_width="0dp"

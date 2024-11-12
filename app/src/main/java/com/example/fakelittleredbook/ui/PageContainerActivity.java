@@ -74,6 +74,12 @@ public class PageContainerActivity extends AppCompatActivity {
         //初次进入界面，默认展示首页
         ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), pageContainerFragment, R.id.fragment_container_view_tag);
 
+        String fragment = "";
+        fragment = getIntent().getStringExtra("fragment");
+        if (fragment != null && fragment.equals(MyPageFragment.class.getName())) {
+            ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), myPageFragment, R.id.fragment_container_view_tag);
+        }
+
         binding.bottomTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
