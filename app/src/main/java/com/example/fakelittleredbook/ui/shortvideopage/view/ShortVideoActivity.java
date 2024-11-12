@@ -1,8 +1,14 @@
 package com.example.fakelittleredbook.ui.shortvideopage.view;
 
+import static android.media.RingtoneManager.isDefault;
+
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowInsets;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +27,7 @@ import com.example.fakelittleredbook.ui.shortvideopage.presenter.ShortVideoPrese
 import com.example.fakelittleredbook.ui.shortvideopage.view.adapters.VideoPagerAdapter;
 import com.example.fakelittleredbook.utils.VideoPlayManager;
 import com.example.fakelittleredbook.utils.VideoPlayTask;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.List;
 
@@ -47,6 +54,7 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
         this.setPresenter(shortVideoPresenter);
 
         mPresenter.getShortVideoPageInfo("小红书视频");
+
     }
 
 
@@ -83,6 +91,17 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
                     VideoPlayManager.getInstance(getApplicationContext()).startPlay();
                     Log.d("Video_Play_TAG", "onPageSelected: 开始播放");
                 }
+
+                ImageButton imageButton = itemView.findViewById(R.id.ibtn_comments);
+                imageButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        MyDialogFragment myDialogFragment = new MyDialogFragment();
+                        myDialogFragment.show(getSupportFragmentManager(), "dialog");
+
+
+                    }
+                });
             }
 
             @Override
