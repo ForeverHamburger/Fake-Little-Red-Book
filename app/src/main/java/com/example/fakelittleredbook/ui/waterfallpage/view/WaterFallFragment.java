@@ -62,6 +62,7 @@ public class WaterFallFragment extends Fragment implements IWaterFallContract.IW
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d("nitian", "onViewCreated: 坏大事了");
         mPresenter.getWaterFallInfo(requestType);
 
         // 绑定下拉刷新

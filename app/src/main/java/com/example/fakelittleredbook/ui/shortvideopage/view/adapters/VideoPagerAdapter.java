@@ -5,12 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
+import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +49,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
     public void onBindViewHolder(@NonNull VideoPagerAdapter.VideoViewHolder holder, int position) {
         holder.videoUrl = mVieoUrls.get(position);
         holder.itemView.setTag(position);
+
     }
 
     @Override
@@ -58,9 +61,11 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
 
         public PlayerView mVideoView;
         public String videoUrl;
+        public ImageButton ibtnComments;
         public VideoViewHolder(@NonNull View itemView) {
             super(itemView);
             mVideoView = itemView.findViewById(R.id.play_view);
+            ibtnComments = itemView.findViewById(R.id.ibtn_comments);
         }
     }
 

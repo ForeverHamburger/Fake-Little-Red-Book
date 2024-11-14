@@ -20,6 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.ActivityShortVideoBinding;
+import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 import com.example.fakelittleredbook.ui.shortvideopage.contract.IShortVideoPageContract;
 import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoInfo;
 import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoModel;
@@ -36,6 +37,7 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
     private ActivityShortVideoBinding binding;
     private IShortVideoPageContract.IShortVideoPagePresenter mPresenter;
     private VideoPagerAdapter videoPagerAdapter;
+    private MyDialogFragment myDialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
         this.setPresenter(shortVideoPresenter);
 
         mPresenter.getShortVideoPageInfo("小红书视频");
-
+        myDialogFragment = new MyDialogFragment(this);
     }
 
 
@@ -87,6 +89,7 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
                 VideoPlayManager.getInstance(getApplicationContext())
                         .setCurVideoPlayTask(new VideoPlayTask(simpleExoPlayerView, videoPagerAdapter.getUrlByPos(position)));
                 Log.d("Video_Play_TAG", "onPageSelected: " +  videoPagerAdapter.getUrlByPos(position));
+
                 if(true) {
                     VideoPlayManager.getInstance(getApplicationContext()).startPlay();
                     Log.d("Video_Play_TAG", "onPageSelected: 开始播放");
@@ -96,11 +99,9 @@ public class ShortVideoActivity extends AppCompatActivity implements IShortVideo
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        MyDialogFragment myDialogFragment = new MyDialogFragment();
                         myDialogFragment.show(getSupportFragmentManager(), "dialog");
                     }
                 });
-
             }
 
             @Override

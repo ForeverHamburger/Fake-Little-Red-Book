@@ -210,4 +210,6 @@
     <color name="color_black_2">#05000000</color>
     <color name="color_black_1">#03000000</color>
     <color name="color_black_0">#00000000</color>
+    <color name="dot_hong">#E73111</color>
+    <color name="text_bottom_comment">#9B9B9B</color>
 </resources>

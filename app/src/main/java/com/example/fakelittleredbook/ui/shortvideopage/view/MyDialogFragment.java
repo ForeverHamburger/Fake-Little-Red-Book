@@ -1,10 +1,12 @@
 package com.example.fakelittleredbook.ui.shortvideopage.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
+import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 import com.example.fakelittleredbook.ui.shortvideopage.model.CommentsInfo;
 import com.example.fakelittleredbook.ui.shortvideopage.view.adapters.CommentsAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -20,7 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyDialogFragment extends BottomSheetDialogFragment {
-
+    private Context mContext;
+    public MyDialogFragment(Context context) {
+        this.mContext = context;
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +49,15 @@ public class MyDialogFragment extends BottomSheetDialogFragment {
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE | WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         initRecyclerView(view);
+
+        EditText comments = view.findViewById(R.id.et_comments);
+        comments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputTextMsgDialog inputTextMsgDialog = new InputTextMsgDialog(mContext, R.style.dialog_center);
+                inputTextMsgDialog.show();
+            }
+        });
     }
 
     private void initRecyclerView(View view) {

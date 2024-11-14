@@ -46,6 +46,7 @@
         app:layout_constraintTop_toBottomOf="@id/rv_comments" />
 
     <EditText
+        android:id="@+id/et_comments"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_gravity="start|center_vertical"
