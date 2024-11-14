@@ -87,7 +87,7 @@ public class WaterFallFragment extends Fragment implements IWaterFallContract.IW
     public void showWaterFallInfomation(List<WaterFallInfo> waterFallInfo) {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         binding.rvWaterFall.setLayoutManager(layoutManager);
-        WaterFallAdapter waterFallAdapter = new WaterFallAdapter(waterFallInfo);
+        WaterFallAdapter waterFallAdapter = new WaterFallAdapter(waterFallInfo,getActivity());
         binding.rvWaterFall.setAdapter(waterFallAdapter);
     }
 

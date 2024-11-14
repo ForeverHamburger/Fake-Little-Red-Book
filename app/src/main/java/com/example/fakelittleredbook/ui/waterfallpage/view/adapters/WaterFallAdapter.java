@@ -1,5 +1,7 @@
 package com.example.fakelittleredbook.ui.waterfallpage.view.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,21 +11,35 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
+import com.example.fakelittleredbook.ui.notepage.view.NotePageActivity;
 import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallInfo;
+import com.example.fakelittleredbook.utils.AnimationUtil;
 
 import java.util.List;
 
 public class WaterFallAdapter extends RecyclerView.Adapter<WaterFallAdapter.ViewHolder> {
     private static final String TAG = "WaterFallAdapter";
     private List<WaterFallInfo> mWaterFallInfoList;
-    public WaterFallAdapter(List<WaterFallInfo> mWaterFallInfoList) {
+    private Context mContext;
+    public WaterFallAdapter(List<WaterFallInfo> mWaterFallInfoList, Context context) {
         this.mWaterFallInfoList = mWaterFallInfoList;
+        this.mContext = context;
     }
     @NonNull
     @Override
     public WaterFallAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = View.inflate(parent.getContext(), R.layout.recycler_waterfall_item, null);
         ViewHolder holder = new ViewHolder(view);
+
+        AnimationUtil.setonlyAnimateView(view);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, NotePageActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         return holder;
     }
 
@@ -37,8 +53,7 @@ public class WaterFallAdapter extends RecyclerView.Adapter<WaterFallAdapter.View
         holder.loveCount.setText(info.getLoveCount());
         holder.loveIcon.setImageResource(R.drawable.icon_love);
 
-        final boolean[] statusLove = {true
-        };
+        final boolean[] statusLove = {true};
 
         holder.loveIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +67,8 @@ public class WaterFallAdapter extends RecyclerView.Adapter<WaterFallAdapter.View
                 }
             }
         });
+
+
     }
 
     @Override

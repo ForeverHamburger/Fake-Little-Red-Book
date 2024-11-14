@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,6 +57,13 @@ public class MyDialogFragment extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 InputTextMsgDialog inputTextMsgDialog = new InputTextMsgDialog(mContext, R.style.dialog_center);
                 inputTextMsgDialog.show();
+
+                inputTextMsgDialog.setmOnTextSendListener(new InputTextMsgDialog.OnTextSendListener() {
+                    @Override
+                    public void onTextSend(String msg) {
+                        Toast.makeText(mContext, "发出去了！", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

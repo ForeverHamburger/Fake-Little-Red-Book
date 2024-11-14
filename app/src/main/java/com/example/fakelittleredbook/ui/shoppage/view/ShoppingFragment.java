@@ -95,7 +95,7 @@ public class ShoppingFragment extends Fragment implements IShopPageContract.ISho
     public void showShopPageInfomation(List<ShopItemInfo> shopItemInfos) {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         binding.rvShoppingFalls.setLayoutManager(layoutManager);
-        ShopItemFallAdapter shopItemFallAdapter = new ShopItemFallAdapter(shopItemInfos);
+        ShopItemFallAdapter shopItemFallAdapter = new ShopItemFallAdapter(shopItemInfos,getActivity());
         binding.rvShoppingFalls.setAdapter(shopItemFallAdapter);
     }
 

@@ -1,5 +1,7 @@
 package com.example.fakelittleredbook.ui.shoppage.view.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,21 +13,33 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
+import com.example.fakelittleredbook.ui.goodsitempage.view.GoodsItemActivity;
 import com.example.fakelittleredbook.ui.shoppage.model.ShopItemInfo;
 
 import java.util.List;
 
 public class ShopItemFallAdapter extends RecyclerView.Adapter<ShopItemFallAdapter.ShopItemViewHolder> {
     private List<ShopItemInfo> shopItemInfoList;
+    private Context mContext;
 
-    public ShopItemFallAdapter(List<ShopItemInfo> shopItemInfoList) {
+    public ShopItemFallAdapter(List<ShopItemInfo> shopItemInfoList, Context context) {
         this.shopItemInfoList = shopItemInfoList;
+        this.mContext = context;
     }
 
     @NonNull
     @Override
     public ShopItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_shopping_item, parent, false);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, GoodsItemActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
         return new ShopItemViewHolder(view);
     }
 

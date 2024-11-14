@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FakeLittleRedBook"
         tools:targetApi="31">
         <activity
+            android:name=".ui.goodsitempage.view.GoodsItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.notepage.view.NotePageActivity"
             android:exported="false" />
         <activity
