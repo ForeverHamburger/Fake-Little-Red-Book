@@ -1,13 +1,8 @@
 package com.example.fakelittleredbook.ui.shortvideopage.view;
 
-import static android.media.RingtoneManager.isDefault;
-
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowInsets;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -20,7 +15,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.databinding.ActivityShortVideoBinding;
-import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 import com.example.fakelittleredbook.ui.shortvideopage.contract.IShortVideoPageContract;
 import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoInfo;
 import com.example.fakelittleredbook.ui.shortvideopage.model.ShortVideoModel;
@@ -28,7 +22,6 @@ import com.example.fakelittleredbook.ui.shortvideopage.presenter.ShortVideoPrese
 import com.example.fakelittleredbook.ui.shortvideopage.view.adapters.VideoPagerAdapter;
 import com.example.fakelittleredbook.utils.VideoPlayManager;
 import com.example.fakelittleredbook.utils.VideoPlayTask;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.List;
 

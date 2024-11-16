@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
-import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 import com.example.fakelittleredbook.ui.shortvideopage.model.CommentsInfo;
 import com.example.fakelittleredbook.ui.shortvideopage.view.adapters.CommentsAdapter;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -52,20 +51,6 @@ public class MyDialogFragment extends BottomSheetDialogFragment {
         initRecyclerView(view);
 
         EditText comments = view.findViewById(R.id.et_comments);
-        comments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InputTextMsgDialog inputTextMsgDialog = new InputTextMsgDialog(mContext, R.style.dialog_center);
-                inputTextMsgDialog.show();
-
-                inputTextMsgDialog.setmOnTextSendListener(new InputTextMsgDialog.OnTextSendListener() {
-                    @Override
-                    public void onTextSend(String msg) {
-                        Toast.makeText(mContext, "发出去了！", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-        });
     }
 
     private void initRecyclerView(View view) {

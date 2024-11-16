@@ -35,8 +35,8 @@ public class VideoPlayManager {
 
     @OptIn(markerClass = UnstableApi.class) public void startPlay() {
         stopPlay();
+
         if(mCurVideoPlayTask == null) {
-            Log.e("Video_Play_TAG", "start play task is null");
             return;
         }
 

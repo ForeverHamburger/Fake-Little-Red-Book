@@ -12,7 +12,6 @@ import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakelittleredbook.R;
-import com.example.fakelittleredbook.ui.myviews.InputTextMsgDialog;
 
 import java.util.ArrayList;
 import java.util.List;

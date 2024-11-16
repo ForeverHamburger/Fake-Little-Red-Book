@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fakelittleredbook.R;
 import com.example.fakelittleredbook.ui.notepage.view.NotePageActivity;
 import com.example.fakelittleredbook.ui.waterfallpage.model.WaterFallInfo;
-import com.example.fakelittleredbook.utils.AnimationUtil;
 
 import java.util.List;
 
@@ -30,8 +29,6 @@ public class WaterFallAdapter extends RecyclerView.Adapter<WaterFallAdapter.View
     public WaterFallAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = View.inflate(parent.getContext(), R.layout.recycler_waterfall_item, null);
         ViewHolder holder = new ViewHolder(view);
-
-        AnimationUtil.setonlyAnimateView(view);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
